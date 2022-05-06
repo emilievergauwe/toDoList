@@ -33,44 +33,55 @@ class HomeController extends Controller
     }
 
     public function userDashboard() {
+        # get user details and check whether they exist in the database. If not redirect them to an error page
         $currentUserEmail = Auth::user()->email;
+        // $userInDatabase = DB::select('select name from employees where exists email=?', [$currentUserEmail]);
+        // dd($userInDatabase);
+
         $userInfo = DB::select('select * from employees where email=?', [$currentUserEmail]);
-        $userInfoArray= json_decode(json_encode($userInfo), true);
 
-        # Query database to get all current company tasks
-        $companyTasks = DB::select('select * from tasks where company=?', [$userInfoArray[0]['company']]);
-
-        # Convert tasks object to array
-        $tasks = json_decode(json_encode($companyTasks), true);
-
-        # Iterate through tasks and create one array for open tasks and one for closed tasks
-        $openTasks = [];
-        $closedTasks = [];
-        foreach($tasks as $task) {
-            if ($task['status'] == "open") {
-                array_push($openTasks, $task);
-            }
-            else {
-                array_push($closedTasks, $task);
-            }
-        }
-
-        if ($userInfoArray[0]['administrator'] == 'yes') {
-            return view('todo-admin', [
-                'openTasks' => $openTasks,
-                'closedTasks' => $closedTasks,
-                'tasks' => $tasks,
-                'user' => $userInfoArray[0]['name']
-            ]);
+        if(empty($userInfo)) {
+            return view('error-view');
         }
         else {
-            return view('todo-users', [
-                'openTasks' => $openTasks,
-                'closedTasks' => $closedTasks,
-                'tasks' => $tasks,
-                'user' => $userInfoArray[0]['name']
-            ]);
+            $userInfoArray= json_decode(json_encode($userInfo), true);
+
+            # Query database to get all current company tasks
+            $companyTasks = DB::select('select * from tasks where company=?', [$userInfoArray[0]['company']]);
+    
+            # Convert tasks object to array
+            $tasks = json_decode(json_encode($companyTasks), true);
+    
+            # Iterate through tasks and create one array for open tasks and one for closed tasks
+            $openTasks = [];
+            $closedTasks = [];
+            foreach($tasks as $task) {
+                if ($task['status'] == "open") {
+                    array_push($openTasks, $task);
+                }
+                else {
+                    array_push($closedTasks, $task);
+                }
+            }
+    
+            if ($userInfoArray[0]['administrator'] == 'yes') {
+                return view('todo-admin', [
+                    'openTasks' => $openTasks,
+                    'closedTasks' => $closedTasks,
+                    'tasks' => $tasks,
+                    'user' => $userInfoArray[0]['name']
+                ]);
+            }
+            else {
+                return view('todo-users', [
+                    'openTasks' => $openTasks,
+                    'closedTasks' => $closedTasks,
+                    'tasks' => $tasks,
+                    'user' => $userInfoArray[0]['name']
+                ]);
+            }
         }
+        
     }
 
     public function adminDashboard() {
