@@ -25,17 +25,51 @@ body {
     height: 55%;
 }
 
-.toDoListDiv {
-    /* Layout Properties */
-    width: 70vw;
-    height: 500px;
-    /* UI Properties */
-    background: #ffffff 0% 0% no-repeat padding-box;
-    border-radius: 20px;
-    opacity: 1;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .todolistDiv {
+        /* Layout Properties */
+        margin-right: 8%;
+        margin-left: 8%;
+        height: auto;
+    }
 }
 
-.loginLabels {
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .todolistDiv {
+        /* Layout Properties */
+        margin-right: 10%;
+        margin-left: 10%;
+        height: auto;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .todolistDiv {
+        /* Layout Properties */
+        margin-right: 15%;
+        margin-left: 15%;
+        height: auto;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .todolistDiv {
+        /* Layout Properties */
+        margin-right: 20%;
+        margin-left: 20%;
+        height: auto;
+    }
+}
+
+.smallLabels {
     font-size: 12px;
     font-weight: bold;
 }
@@ -44,12 +78,8 @@ body {
     color: #2d4d73;
 }
 
-.purpleBackground {
-    background: #6d05a1 0% 0% no-repeat padding-box;
-}
-
-.greenBackground {
-    background: #b3e824;
+.borderRoundedXl {
+    border-radius: 18px;
 }
 
 :root {

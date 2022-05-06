@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center" style="margin-right: 10%; margin-left: 10%">
+<div class="">
+    <div class="justify-content-center todolistDiv">
         <div class="mt-4">
             <div class="d-flex flex-column float-right">
                 <form method="POST" action="{{ route('logout') }}">
@@ -19,17 +19,17 @@
                             <path id="user-hair-long-solid" d="M4.166,5.555a5.555,5.555,0,0,1,11.11,0v.438A5.582,5.582,0,0,0,16.9,9.96l.169.169a.982.982,0,0,1-.694,1.675H3.065a.957.957,0,0,1-.694-1.675l.168-.169A5.546,5.546,0,0,0,4.127,5.994ZM12.9,4.166h-.056A2.77,2.77,0,0,1,10.659,3.1,3.469,3.469,0,0,1,7.638,4.861H6.319a3.658,3.658,0,0,0-.069.694V6.25a3.472,3.472,0,0,0,6.944,0V5.555A3.445,3.445,0,0,0,12.9,4.166Zm-.46,9.722a7,7,0,0,1,7,7,1.335,1.335,0,0,1-1.332,1.332H1.333A1.334,1.334,0,0,1,0,20.888a7,7,0,0,1,7-7Z" fill="#2d4d73"/>
                         </svg>
                     </span>
-                    <span class="ml-2 mt-1 font-weight-bold" style="font-size : 12px; color : #2d4d73">Welcome, {{ $user }}</span>
+                    <span class="ml-2 mt-1 font-weight-bold smallLabels">Welcome, {{ $user }}</span>
                 </div>
             </div>
-            <h1 class="text-center mb-5" style="color: #2d4d73; font-family: 'Poppins', sans-serif;">
+            <h1 class="text-center darkBlue mb-5">
             To do list
             </h1>
         </div>
-        <div class="bg-white shadow-lg p-4 mt-4" style="border-radius : 16px;">
+        <div class="bg-white borderRoundedXl shadow-lg p-4 mt-4">
             <div>
                 <div class="d-flex justify-content-between align-items-center">                
-                    <div id="openTasksCount" class="font-weight-bold mb-3" style="color: #2d4d73; font: normal normal medium 20px/30px Poppins;">{{ sizeof($openTasks) }} remaining tasks</div>
+                    <div id="openTasksCount" class="font-weight-bold darkBlue mb-3">{{ sizeof($openTasks) }} remaining tasks</div>
                     <button type="submit" class="d-flex align-items-center justify-content-between btn btn-sm border-0 font-weight-bold rounded-lg mb-3 py-2 px-3" style="background: #b3e824;">
                         <span class="mr-2" onclick="createNewTask()">+ Add New Task</span>
                     </button>
@@ -48,7 +48,7 @@
                     </div>
                 @endforeach
             </div> 
-            <div class="font-weight-bold mb-3 mt-5" style="color: #2d4d73;">Completed tasks</div>
+            <div class="font-weight-bold darkBlue mb-3 mt-5">Completed tasks</div>
             
             <div class="">  
                 <div>
