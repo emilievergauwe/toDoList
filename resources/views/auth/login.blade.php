@@ -47,6 +47,7 @@
                                 <span class="ml-3">Login</span>
                             </button>
                         </div>
+                        <a href="{{ route('register') }}" class="font-weight-bold" style="color: #2d4d73; font-size: 12px">REGISTER</a>
                     </form>
                 </div>
             </div>
