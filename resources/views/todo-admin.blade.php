@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="margin-right: 10%; margin-left: 10%">
         <div class="mt-4">
             <div class="d-flex flex-column float-right">
                 <form method="POST" action="{{ route('logout') }}">
@@ -26,7 +26,7 @@
             To do list
             </h1>
         </div>
-        <div class="bg-white rounded-lg shadow-lg card-body p-4 mt-4">
+        <div class="bg-white shadow-lg p-4 mt-4" style="border-radius : 16px;">
             <div>
                 <div class="d-flex justify-content-between align-items-center">                
                     <div id="openTasksCount" class="font-weight-bold mb-3" style="color: #2d4d73; font: normal normal medium 20px/30px Poppins;">{{ sizeof($openTasks) }} remaining tasks</div>
@@ -48,9 +48,9 @@
                     </div>
                 @endforeach
             </div> 
-            <div class="font-weight-bold mb-3 mt-4" style="color: #2d4d73;">Completed tasks</div>
+            <div class="font-weight-bold mb-3 mt-5" style="color: #2d4d73;">Completed tasks</div>
             
-            <div class="text-secondary">  
+            <div class="">  
                 <div>
                     <div id="completedTask" class="d-none justify-content-between align-items-center border rounded-lg py-1 px-3 mb-3">
                         <div class="d-flex align-items-center">

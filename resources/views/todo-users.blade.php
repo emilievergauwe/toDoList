@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" style="margin-right: 10%; margin-left: 10%">
                 <div class="mt-4">
                     <div class="d-flex flex-column float-right">
                         <form method="POST" action="{{ route('logout') }}">
@@ -26,16 +26,16 @@
                     To do list
                     </h1>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg card-body p-4 mt-4">
-                    <div class="secondaryTitle mb-3" id="openTasksCount" style="font: normal normal medium 20px/30px Poppins;">{{ sizeof($openTasks) }} remaining tasks</div>
+                <div class="bg-white shadow-lg p-4 mt-4" style="border-radius : 18px;">
+                    <div id="openTasksCount" class="font-weight-bold mb-3" style="color: #2d4d73; font: normal normal medium 20px/30px Poppins;">{{ sizeof($openTasks) }} remaining tasks</div>
                         @foreach($openTasks as $task)
                             <div  id="{{ $task['id'] }}" class="d-flex align-items-center border rounded-lg py-1 px-3 mb-3">
                                 <input type="checkbox" id="task" value="{{ $task['id'] }}" onclick="onClickHandler({{ $task['id'] }})"></input>
                                 <div class="ml-2">{{ $task['info'] }}</div>
                             </div>
                         @endforeach
-                    <div class="secondaryTitle mb-3 mt-4">Completed tasks</div>          
-                    <div class="text-secondary">
+                    <div class="font-weight-bold mb-3 mt-5" style="color: #2d4d73;">Completed tasks</div>          
+                    <div class="">
                         <div id="completedTask1" class="d-none align-items-center border rounded-lg py-1 px-3 mb-3">
                             <svg id="Composant_2_4" data-name="Composant 2 – 4" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
                                 <circle id="Ellipse_1" data-name="Ellipse 1" cx="8.5" cy="8.5" r="8.5" fill="#b3e824"/>

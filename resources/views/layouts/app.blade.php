@@ -25,7 +25,7 @@
     <link href="/css/app.css" rel="stylesheet">
 
 </head>
-<body style="background: #dbebf3 0% 0% no-repeat padding-box;">
+<body style="background: #dbebf3 0% 0% no-repeat padding-box; font-family: 'Poppins', sans-serif;">
     <div id="app">
         <main class="py-4">
             @yield('content')
