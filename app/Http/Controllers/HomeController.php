@@ -33,16 +33,16 @@ class HomeController extends Controller
     }
 
     public function userDashboard() {
-        $user = Auth::user()->name;
         $currentUserEmail = Auth::user()->email;
-        $userCompany = DB::select('select company from employees where email=?', [$currentUserEmail]);
-        $company= (json_decode(json_encode($userCompany), true))[0]['company'];
+        $userInfo = DB::select('select * from employees where email=?', [$currentUserEmail]);
+        $userInfoArray= json_decode(json_encode($userInfo), true);
 
         # Query database to get all current company tasks
-        $companyTasks = DB::select('select * from tasks where company=?', [$company]);
+        $companyTasks = DB::select('select * from tasks where company=?', [$userInfoArray[0]['company']]);
 
         # Convert tasks object to array
         $tasks = json_decode(json_encode($companyTasks), true);
+
         # Iterate through tasks and create one array for open tasks and one for closed tasks
         $openTasks = [];
         $closedTasks = [];
@@ -55,12 +55,22 @@ class HomeController extends Controller
             }
         }
 
-        return view('todo-users', [
-            'openTasks' => $openTasks,
-            'closedTasks' => $closedTasks,
-            'tasks' => $tasks,
-            'user' => $user
-        ]);
+        if ($userInfoArray[0]['administrator'] == 'yes') {
+            return view('todo-admin', [
+                'openTasks' => $openTasks,
+                'closedTasks' => $closedTasks,
+                'tasks' => $tasks,
+                'user' => $userInfoArray[0]['name']
+            ]);
+        }
+        else {
+            return view('todo-users', [
+                'openTasks' => $openTasks,
+                'closedTasks' => $closedTasks,
+                'tasks' => $tasks,
+                'user' => $userInfoArray[0]['name']
+            ]);
+        }
     }
 
     public function adminDashboard() {
