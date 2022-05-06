@@ -22,7 +22,7 @@
                             <span class="ml-2 mt-1 font-weight-bold" style="font-size : 12px; color : #2d4d73">Welcome, {{ $user }}</span>
                         </div>
                     </div>
-                    <h1 class="text-center darkBlue mb-5" style="font-family: 'Poppins', sans-serif;">
+                    <h1 class="text-center mb-5" style="color: #2d4d73; font-family: 'Poppins', sans-serif;">
                     To do list
                     </h1>
                 </div>
