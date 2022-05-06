@@ -18,19 +18,20 @@ body {
     opacity: 1;
 }
 
-.loginMainDiv {
-    margin-top: 10%;
-    margin-bottom: 10%;
-    width: 30%;
-    height: 55%;
-}
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .todolistDiv {
         /* Layout Properties */
         margin-right: 8%;
         margin-left: 8%;
+        height: auto;
+    }
+
+    .loginDiv {
+        margin-top: 20%;
+        margin-bottom: 10%;
+        margin-left: 10%;
+        margin-right: 10%;
         height: auto;
     }
 }
@@ -43,6 +44,14 @@ body {
         margin-left: 10%;
         height: auto;
     }
+
+    .loginDiv {
+        margin-top: 20%;
+        margin-bottom: 10%;
+        margin-left: 10%;
+        margin-right: 10%;
+        height: auto;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -51,6 +60,14 @@ body {
         /* Layout Properties */
         margin-right: 15%;
         margin-left: 15%;
+        height: auto;
+    }
+
+    .loginDiv {
+        margin-top: 25%;
+        margin-bottom: 10%;
+        margin-left: 15%;
+        margin-right: 15%;
         height: auto;
     }
 }
@@ -65,6 +82,14 @@ body {
         /* Layout Properties */
         margin-right: 20%;
         margin-left: 20%;
+        height: auto;
+    }
+
+    .loginDiv {
+        margin-top: 30%;
+        margin-bottom: 10%;
+        margin-left: 25%;
+        margin-right: 25%;
         height: auto;
     }
 }

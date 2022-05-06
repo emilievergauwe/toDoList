@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center" style="margin-top: 10%">
+    <div class="row justify-content-center loginDiv">
         <h1 class="text-center mb-4">
             To do list
         </h1>
