@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,10 +13,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [HomeController::class, 'login']);
+Route::get('/tasks', [HomeController::class, 'userDashboard'] );
+Route::get('/admin', [HomeController::class, 'adminDashboard'] );
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('update-task', [HomeController::class, 'updateTask'] );
+Route::post('delete-task', [HomeController::class, 'deleteTask'] );
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
