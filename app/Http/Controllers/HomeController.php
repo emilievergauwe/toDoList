@@ -60,7 +60,8 @@ class HomeController extends Controller
                     array_push($closedTasks, $task);
                 }
             }
-    
+            
+            # Check whether user is an administrator or not and redirect to user or admin view
             if ($userInfoArray[0]['administrator'] == 'yes') {
                 return view('todo-admin', [
                     'openTasks' => $openTasks,
@@ -92,18 +93,18 @@ class HomeController extends Controller
     }
 
     public function deleteTask(Request $request) {
+        # update database tasks table
         $selectedTask = $request->input('selectedTask');
         $query = DB::delete('delete from tasks WHERE id=? ', [$selectedTask]);
 
     }
 
     public function createTask() {
-
         # Get current user info
-        $currentUserEmail= Auth::user()->email;
-        $userInfo= DB::select('select * from employees where email=?', [$currentUserEmail]);
-        $userInfoArray= json_decode(json_encode($userInfo), true);
-        $user= $userInfoArray[0]['name'];
+        $currentUserEmail = Auth::user()->email;
+        $userInfo = DB::select('select * from employees where email=?', [$currentUserEmail]);
+        $userInfoArray = json_decode(json_encode($userInfo), true);
+        $user = $userInfoArray[0]['name'];
 
         return view('create-task', [
             'user' => $user,
@@ -112,7 +113,6 @@ class HomeController extends Controller
     }
 
     public function saveTask(Request $request) {
-
         # Get user input
         $task = $request->input('taskInfo');
         $company = $request->input('company');
