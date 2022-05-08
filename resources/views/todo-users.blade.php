@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
         <div class="">
-            <div style="top: 0px; right: 0px" class="absolute">test</div>
             <div class="justify-content-center todolistDiv" style="position : relative">
                 <div class="d-flex flex-column" style="position : absolute; right : 0px">
                     <form method="POST" action="{{ route('logout') }}">
@@ -22,7 +21,7 @@
                         <span class="ml-2 mt-1 font-weight-bold darkBlue smallLabels">Welcome, {{ $user }}</span>
                     </div>
                 </div>
-                <div class="mt-4 d-flex justify-content-center">
+                <div class="mt-4 d-flex justify-content-start justify-content-md-center">
                     <h1 class="text-center mb-5 darkBlue justify-content-center">
                     To do list
                     </h1>
