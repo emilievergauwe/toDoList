@@ -122,4 +122,9 @@ class HomeController extends Controller
 
         return redirect('/tasks');
     }
+
+    public function errorReset(Request $request) {
+        Auth::logout();
+        return redirect('/');
+    }
 }

@@ -22,4 +22,6 @@ Route::post('delete-task', [HomeController::class, 'deleteTask'] );
 Route::get('create-task', [HomeController::class, 'createTask']);
 Route::post('save-task', [HomeController::class, 'saveTask']);
 
+Route::get('error', [HomeController::class, 'errorReset']);
+
 Auth::routes();
