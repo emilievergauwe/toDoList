@@ -15,13 +15,11 @@ use App\Http\Controllers\HomeController;
 */
 Route::get('/', [HomeController::class, 'login']);
 Route::get('/tasks', [HomeController::class, 'userDashboard'] );
-Route::get('/admin', [HomeController::class, 'adminDashboard'] );
 
 Route::post('update-task', [HomeController::class, 'updateTask'] );
 Route::post('delete-task', [HomeController::class, 'deleteTask'] );
 
 Route::get('create-task', [HomeController::class, 'createTask']);
 Route::post('save-task', [HomeController::class, 'saveTask']);
-Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
