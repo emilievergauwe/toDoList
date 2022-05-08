@@ -49,7 +49,6 @@
                 @endforeach
             </div> 
             <div class="font-weight-bold darkBlue mb-3 mt-5">Completed tasks</div>
-            
             <div class="">  
                 <div>
                     <div id="completedTask" class="d-none justify-content-between align-items-center border rounded-lg py-1 px-3 mb-3">
@@ -189,9 +188,4 @@ function createNewTask() {
 }
 
 </script>
-<style>
-    .darkBlue {
-        color: #2d4d73;
-    }
-</style>
 @endsection
