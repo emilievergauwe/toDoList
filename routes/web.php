@@ -20,11 +20,8 @@ Route::get('/admin', [HomeController::class, 'adminDashboard'] );
 Route::post('update-task', [HomeController::class, 'updateTask'] );
 Route::post('delete-task', [HomeController::class, 'deleteTask'] );
 
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
+Route::get('create-task', [HomeController::class, 'createTask']);
+Route::post('save-task', [HomeController::class, 'saveTask']);
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

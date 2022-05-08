@@ -183,6 +183,11 @@ function deleteTask(selectedTask) {
             console.log(error);
         });
 }
+
+function createNewTask() {
+    window.location.href = '/create-task'
+}
+
 </script>
 <style>
     .darkBlue {

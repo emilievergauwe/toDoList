@@ -35,9 +35,6 @@ class HomeController extends Controller
     public function userDashboard() {
         # get user details and check whether they exist in the database. If not redirect them to an error page
         $currentUserEmail = Auth::user()->email;
-        // $userInDatabase = DB::select('select name from employees where exists email=?', [$currentUserEmail]);
-        // dd($userInDatabase);
-
         $userInfo = DB::select('select * from employees where email=?', [$currentUserEmail]);
 
         if(empty($userInfo)) {
@@ -129,5 +126,31 @@ class HomeController extends Controller
         $selectedTask = $request->input('selectedTask');
         $query = DB::delete('delete from tasks WHERE id=? ', [$selectedTask]);
 
+    }
+
+    public function createTask() {
+
+        # Get current user info
+        $currentUserEmail= Auth::user()->email;
+        $userInfo= DB::select('select * from employees where email=?', [$currentUserEmail]);
+        $userInfoArray= json_decode(json_encode($userInfo), true);
+        $user= $userInfoArray[0]['name'];
+
+        return view('create-task', [
+            'user' => $user,
+            'company' => $userInfoArray[0]['company'],
+        ]);
+    }
+
+    public function saveTask(Request $request) {
+
+        # Get user input
+        $task = $request->input('taskInfo');
+        $company = $request->input('company');
+        
+        # Save new Task into database
+        $query = DB::insert('insert into tasks (info, status, company, achiever) VALUES (?, "open", ?, "none")', [$task, $company]);
+
+        return redirect('/tasks');
     }
 }
