@@ -19,7 +19,7 @@ class TaskSeeder extends Seeder
         $faker = Factory::create();
 
         for($i = 1; $i < 10; $i++) {
-            $count = 'task' . strval($i);
+            $count = 'Bailey LLC task ' . strval($i);
             Task::create([
                 'info' => $count,
                 'status' => 'open',
@@ -29,7 +29,7 @@ class TaskSeeder extends Seeder
         }
         
         for($i = 1; $i < 10; $i++) {
-            $count = 'task' . strval($i);
+            $count = 'Willms-Moen task ' . strval($i);
             Task::create([
                 'info' => $count,
                 'status' => 'open',
@@ -39,7 +39,7 @@ class TaskSeeder extends Seeder
         }  
 
         for($i = 1; $i < 10; $i++) {
-            $count = 'task' . strval($i);
+            $count = 'Lynch and Sons task ' . strval($i);
             Task::create([
                 'info' => $count,
                 'status' => 'open',
